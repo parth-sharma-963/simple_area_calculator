@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpet Area Calculator</title>
+    <link rel="stylesheet" href="calci.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Carpet Area Calculator</h1>
+                <p>Professional area calculation tool for various shapes and built-up areas</p>
+            </div>
+        </div>
+
+        <div class="calculator-tabs">
+            <button class="tab-button active" data-tab="shapes">
+                <span class="tab-icon">📐</span>
+                Shape Calculator
+            </button>
+            <button class="tab-button" data-tab="buildup">
+                <span class="tab-icon">🏢</span>
+                Built-up Area
+            </button>
+        </div>
+
+        <!-- Shape Calculator Tab -->
+        <div id="shapes" class="tab-content active">
+            <div class="section-header">
+                <h3>Select Carpet Shape</h3>
+                <p>Choose the shape that matches your carpet requirements</p>
+            </div>
+            
+            <div class="shape-selector">
+                <div class="shape-card active" data-shape="rectangle">
+                    <div class="shape-icon">▭</div>
+                    <span>Rectangle</span>
+                </div>
+                <div class="shape-card" data-shape="circle">
+                    <div class="shape-icon">●</div>
+                    <span>Circle</span>
+                </div>
+                <div class="shape-card" data-shape="ellipse">
+                    <div class="shape-icon">⬭</div>
+                    <span>Ellipse</span>
+                </div>
+                <div class="shape-card" data-shape="pentagon">
+                    <div class="shape-icon">⬟</div>
+                    <span>Pentagon</span>
+                </div>
+                <div class="shape-card" data-shape="hexagon">
+                    <div class="shape-icon">⬢</div>
+                    <span>Hexagon</span>
+                </div>
+            </div>
+
+            <div class="formula-display">
+                <div class="formula-header">
+                    <span class="formula-icon">∑</span>
+                    <span>Formula</span>
+                </div>
+                <div class="formula" id="formula">Area = Width × Length</div>
+            </div>
+
+            <!-- Rectangle inputs -->
+            <div id="rectangle-inputs" class="shape-inputs">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Width</label>
+                        <div class="input-container">
+                            <input type="number" id="width" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Length</label>
+                        <div class="input-container">
+                            <input type="number" id="length" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circle inputs -->
+            <div id="circle-inputs" class="shape-inputs" style="display: none;">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Radius</label>
+                        <div class="input-container">
+                            <input type="number" id="radius" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ellipse inputs -->
+            <div id="ellipse-inputs" class="shape-inputs" style="display: none;">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>A-axis (Semi-major)</label>
+                        <div class="input-container">
+                            <input type="number" id="axisA" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>B-axis (Semi-minor)</label>
+                        <div class="input-container">
+                            <input type="number" id="axisB" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pentagon inputs -->
+            <div id="pentagon-inputs" class="shape-inputs" style="display: none;">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Side Length</label>
+                        <div class="input-container">
+                            <input type="number" id="pentagonSide" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hexagon inputs -->
+            <div id="hexagon-inputs" class="shape-inputs" style="display: none;">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Side Length</label>
+                        <div class="input-container">
+                            <input type="number" id="hexagonSide" placeholder="0.00" step="0.01" min="0">
+                            <div class="unit-selector">
+                                <button class="unit-btn active" data-unit="ft">ft</button>
+                                <button class="unit-btn" data-unit="m">m</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" id="calculateShapeBtn">
+                <span>Calculate Area</span>
+                <span class="btn-icon">→</span>
+            </button>
+            <div id="shape-result" class="result"></div>
+        </div>
+
+        <!-- Built-up Area Calculator Tab -->
+        <div id="buildup" class="tab-content">
+            <div class="section-header">
+                <h3>Built-up Area Calculator</h3>
+                <p>Calculate carpet area by deducting walls and common areas</p>
+            </div>
+            
+            <div class="input-group">
+                <label>Built-up Area</label>
+                <div class="input-container">
+                    <input type="number" id="builtupArea" placeholder="0.00" step="0.01" min="0">
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="sq ft">sq ft</button>
+                        <button class="unit-btn" data-unit="sq m">sq m</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deduction-selector">
+                <div class="radio-group">
+                    <label class="radio-option active">
+                        <input type="radio" name="deductionType" value="percentage" checked>
+                        <span class="radio-custom"></span>
+                        <div class="radio-content">
+                            <span class="radio-title">Percentage Deduction</span>
+                            <span class="radio-desc">Standard wall thickness percentage</span>
+                        </div>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="deductionType" value="fixed">
+                        <span class="radio-custom"></span>
+                        <div class="radio-content">
+                            <span class="radio-title">Fixed Deduction</span>
+                            <span class="radio-desc">Specific area to deduct</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group" id="percentage-input">
+                <label>Wall Thickness/Common Areas (%)</label>
+                <div class="input-container">
+                    <input type="number" id="deductionPercent" placeholder="20" step="0.1" min="0" max="100">
+                    <span class="input-suffix">%</span>
+                </div>
+            </div>
+
+            <div class="input-group" id="fixed-input" style="display: none;">
+                <label>Fixed Deduction</label>
+                <div class="input-container">
+                    <input type="number" id="deductionFixed" placeholder="0.00" step="0.01" min="0">
+                    <div class="unit-selector">
+                        <button class="unit-btn active" data-unit="sq ft">sq ft</button>
+                        <button class="unit-btn" data-unit="sq m">sq m</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" id="calculateBuiltupBtn">
+                <span>Calculate Carpet Area</span>
+                <span class="btn-icon">→</span>
+            </button>
+            <div id="buildup-result" class="result"></div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
